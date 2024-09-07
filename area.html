@@ -1,0 +1,126 @@
+<body>
+    <input type="number" id="num1">
+    <input type="number" id="num2">
+    <button type="submit" id="add">Add</button>
+    <input type="number" readonly id="res">
+</body>
+
+<script>
+    const nu1= document.querySelector("#num1");
+    const nu2= document.querySelector("#num2");
+    document.querySelector("add").addEventListener("click", function(){
+        let isku= nu1+nu2;
+        document.querySelector("#res").textContent= isku;
+    })
+
+
+
+
+
+    const add=["Muuse","Abdi"];
+    const names=["yahye","Ahmed","Omar","Ali","Rubeey"];
+    //line by line waye kan
+    //document.write(names[2]);
+    //waxa kaloo Loo dabici karaa Loops.
+    let tirokoob=0;
+    let text='';
+    while(tirokoob < 5){
+        tirokoob++
+        if(tirokoob==2){
+            continue;
+        }
+        text+= names[tirokoob]+"<br>";
+    }
+    document.write(text);
+    document.write(names.concat(add));
+
+    let rndm= [11,22,33,44,55]
+    
+    let maqal='Cad hilib';
+    switch(maqal){
+        case 'caano':
+            console.log("Wey Taala, Wana Diyar!");
+        break;
+        case 'Cad hilib':
+            console.log("Hilib jilicsan oo ari ah Yaaaala!");
+        break;
+        default:
+            console.log(maqal + "Wax kle Ma yalaan!");
+    }
+
+
+    // Labo function leys Dhax Gilinaayo.
+    //Waxna la dhahaaa closure
+    const counter=() =>{
+        let score= 0;
+        return function(){
+            score= score+1;
+            return score;
+        }
+    }
+    const muuse =counter();
+    console.log(muuse());
+    console.log(muuse());
+    console.log(muuse());
+    console.log(muuse());
+    console.log(muuse());
+    console.log(muuse());
+    console.log(muuse());
+    console.log('<br>');
+
+
+    //labo fucntion Cadi aa is dhax gilinaaa.
+    function xisaab(){
+        let tiro=2;
+        return function(){
+            tiro= tiro+2;
+            return tiro;
+        }
+    }
+    const newXisaabo =xisaab();
+    console.log(newXisaabo());
+    console.log(newXisaabo());
+    console.log(newXisaabo());
+    console.log(newXisaabo());
+
+
+    // callback function aa isticmaleynaaaa.
+    const foods = ['bariis', 'Baasto', 'Soor', 'Muufo'];
+    fristOne=(Array, CB) =>{
+        CB (Array[3]);
+    }
+    fristOne(foods, (firstItem)=>{
+        console.log(firstItem);
+    })
+
+    // setTimeout waxa uu dib udhigayaaa Run timeka marka aad sameyso.
+    function tijabo(){
+        let yahye= 11;
+        setTimeout(function(){
+            let ahmed= 22;
+            let Omar= yahye+ahmed;
+            console.log(Omar, "Waan Tijaabiyay!")
+        },1000);
+    }
+    tijabo();
+
+    // Area aa soo bandhigaa waxa sheega number of area-yda.
+    newForEach= (list, callback) =>{
+        for(let i=0; i<foods.length; i++){
+            callback(list[i], i);
+        }
+    }
+    newForEach(foods, function(item, index){
+        console.log(item, index);
+    })
+
+    let value = 1;
+    samey= (tiro, cb) =>{
+        cb(tiro=3)
+    }
+    samey(value, function(){
+        console.log(value);
+    })
+
+
+</script>
